@@ -1,0 +1,43 @@
+
+<h1>Użytkownicy</h1>
+
+
+<%=form_tag({:controller=>:users},{:method=>:get}) do%>
+ <div class="field">
+    <%= label_tag :id ,"Znajdź użytkownika:"%>
+    <%= hidden_field_tag :id%>
+    <%= autocomplete_field_tag 'user_name_3',"", autocomplete_user_name_users_path,:id_element => '#id',:size=>50 %>
+    <%= button_tag "Zobacz", :class=>"btn btn-info"%>
+ </div>
+<%end%>
+
+<h3 style="color:red;"><%=flash[:notice]%></h3>
+
+<table id="tabela_uzytkownikow"  class="table table-striped">
+  <tr>
+    <th>Imię i nazwisko</th>
+    <th>Tytuł</th>
+    <th></th>
+     <% if admin_or_dziekan %>
+    <th></th>
+    <th></th>
+    <%end%>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td><%= link_to "#{user.name.force_encoding('utf-8')}", user %></td>
+    <td><%= user.title %></td>
+    <td><%= link_to 'Pokaż', user ,:class=>"btn btn-info"%></td>
+     <% if admin_or_dziekan %>
+    <td><%= link_to 'Edytuj', edit_user_path(user)  ,:class=>"btn btn-success"%></td>
+    <td><%= button_to 'Usuń', user, confirm: 'Na pewno chcesz usunąć?', method: :delete  ,:class=>"btn btn-warning"%></td>
+    <%end%>
+  </tr>
+<% end %>
+</table>
+<%#= will_paginate @users  %>
+<br />
+<% if admin_or_dziekan %>
+  <%= link_to 'Dodaj nowego użytkownika', new_user_path %>
+<%end%>

@@ -1,0 +1,20 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+     <div class="container">
+    <a class="brand" href="#">fssp.pl</a>
+    <ul class="nav">
+    <%if admin_or_dziekan%>
+      <li><%= link_to "Artykuły",articles_path %></li>
+      <li><%= link_to "Menu",menu_items_path %></li>
+      <li><%= link_to "Użytkownicy",users_path %></li>
+      <li><%= link_to "Obrazki",images_path %></li>
+<%end%>
+      <%if current_user%>
+      <li><%= link_to 'Wyloguj', logout_url, :method=> :delete %></li>
+      <%end%>
+    </ul>
+     </div>
+  </div>
+</div>
+<div style="height:40px;"> </div>
+

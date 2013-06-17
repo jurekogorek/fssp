@@ -1,0 +1,9 @@
+<article class="art">
+  <section>
+    <%= raw article_simple.tresc_prep %>
+  </section>
+  <%if admin_or_dziekan%>
+  <br />
+  <%= link_to 'Edit', edit_article_path(article_simple),:class=>"btn btn-success" %>
+  <%end%>
+</article>

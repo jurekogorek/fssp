@@ -1,0 +1,31 @@
+<h1>Listing images</h1>
+
+<%= link_to 'New Image', new_image_path ,:class=>"btn btn-success"%>
+
+<br />
+<br />
+<table  class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @images.each do |image| %>
+  <tr>
+    <td><%= image.title %></td>
+    <td><%= image_tag image.avatar.url(:thumb) %></td>
+    <td><%= link_to 'Show', image ,:class=>"btn btn-info"%></td>
+    <td><%= link_to 'Edit', edit_image_path(image) ,:class=>"btn btn-success"%></td>
+    <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-warning" %></td>
+  </tr>
+<% end %>
+</table>
+
+<%=will_paginate @images%>
+
+<br />
+
+

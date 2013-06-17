@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @image.title %>
+</p>
+<p>
+<%= image_tag @image.avatar.url(:medium) %>
+</p>
+<ul>
+  <li><%=  @image.avatar.url%></li>
+  <li><%=  @image.avatar.url(:medium)%></li>
+  <li><%=  @image.avatar.url(:thumb)%></li>
+</ul>
+<%= link_to 'Edytuj', edit_image_path(@image),:class=>"btn btn-success" %>
+<%= link_to 'Obrazki', images_path ,:class=>"btn btn-info"%>

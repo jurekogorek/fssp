@@ -1,0 +1,44 @@
+<script language="javascript" type="text/javascript">
+
+  function czysc(id_hidden,textbox){
+    if($("#"+textbox).attr('value') == ""){
+
+      $("#"+id_hidden).attr('value',0);
+    }
+  }
+
+</script>
+
+<%= form_for(@menu_item) do |f| %>
+  <% if @menu_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menu_item.errors.count, "error") %> prohibited this menu_item from being saved:</h2>
+
+      <ul>
+      <% @menu_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :typ %><br />
+    <%= f.text_field :typ %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+<div class="field">
+    <%= f.label :parent_id ,"Menu nadrzędne"%><br />
+    <%= hidden_field :menu_item,:parent_id %>
+    <%= autocomplete_field_tag 'file_name',"#{@menu_item.parent_name}", autocomplete_menu_item_title_menu_items_path,:id_element => '#menu_item_parent_id',:size=>50,:onKeyUp=>"czysc('menu_item_parent_id','file_name')" %>
+ </div>
+ <div class="field">
+    <%= f.label :kolejnosc %><br />
+    <%= f.text_field :kolejnosc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

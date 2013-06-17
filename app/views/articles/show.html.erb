@@ -1,0 +1,21 @@
+
+
+
+<article class="art">
+  <header>
+    <h1>
+      <%=@article.title%>
+    </h1>
+    <h5><%= @article.updated_at.strftime("%Y-%m-%d") %></h5>
+
+  </header>
+  <section>
+    <%= raw @article.tresc_prep %>
+  </section>
+  <%if admin_or_dziekan%>
+  <br />
+  <%= link_to 'Edytuj', edit_article_path(@article),:class=>"btn btn-success" %>
+  <%end%>
+</article>
+
+  <%= render :partial=>"articles/pictures",:object=>@article %>

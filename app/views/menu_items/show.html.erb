@@ -1,0 +1,17 @@
+<%if @menu_item.articles.empty?%>
+  <%=@menu_item.title%>
+<%elsif @menu_item.articles.length == 1%>
+  <%=render :partial=>"articles/article",:object=>@menu_item.articles.first%>
+<%else%>
+  <%art = @menu_item.articles_for_list(params[:page],10)%>
+  <%art.each do |a|%>
+      <%=render :partial=>"articles/article_short",:object=>a%>
+<%if a != art.last%>
+<div class="linia">
+  <div class="linia_inner"></div>
+</div>
+<%end%>
+  <%end%>
+  <br />
+  <%=will_paginate art%>
+<%end%>

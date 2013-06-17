@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sedilla</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "jquery-ui" %>
+  <%= javascript_include_tag "bootstrap.min" %>
+  <%= stylesheet_link_tag "bootstrap.min", :media => "all" %>
+  <%= stylesheet_link_tag "bootstrap-responsive.min", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%=yield :naglowki%>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34641881-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+
+<%= render :partial=>'layouts/adm_menu' if current_user %>
+
+<article id="naglowek">
+  <div id="naglowek_inner" class="sedilla">
+  <header id="naglowek_top">
+    <%=render :partial=>"layouts/menu_gora"%>
+  </header>
+  <section id="naglowek_center">
+    <%#*<h2>Sedilla</h2>%>
+    <%#*<h3>Nadzwyczajne Duszpasterstwo Akademickie</h3>%>
+    
+  </section>
+  <menu id="naglowek_menu">
+
+      <%=render :partial=>"layouts/menu",:object=>"sedilla" %>
+
+  </menu>
+  </div>
+</article>
+<article id="glowna">
+  <div id="glowna_inner">
+    <section id="lewa">
+      <div id="lewa_inner">
+        <%= yield %>
+      </div>
+    </section>
+    <aside id="prawa">
+      <div id="prawa_inner">
+        <%=render :partial=>"articles/article_simple",:object=>Article.where(["title=?","sedilla.pl"]).first%>
+      </div>
+    </aside>
+    <div class="clear"></div>
+  </div>
+</article>
+  <%= render :partial=>"layouts/stopka" %>
+</body>
+</html>

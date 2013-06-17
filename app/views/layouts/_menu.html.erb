@@ -1,0 +1,20 @@
+<ul id="menu_m">
+  <%l=0%>
+  <% MenuItem.glowne(menu).each do |p| %>
+    <li class="menu_m_m<%=" first" if l==0 %>">
+      <%l=l+1%>
+
+      <%= link_to "#{p.title}",menu_item_path(p)%>
+      <%if not p.childs.empty?%>
+        <ul class="menu_c">
+          <%p.childs.each do |s|%>
+            <li>
+              <%= link_to "#{s.title}",menu_item_path(s)%>
+            </li>
+          <%end%>
+        </ul>
+      <%end%>
+    </li>
+  <% end %>
+  <div class="clear"></div>
+</ul>

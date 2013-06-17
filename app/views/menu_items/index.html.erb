@@ -1,0 +1,31 @@
+<h1>Elementy Menu</h1>
+<%= link_to 'New Menu item', new_menu_item_path , :class=>"btn btn-success" %>
+
+<br />
+<br />
+<table  class="table table-striped">
+  <tr>
+    <th>Type</th>
+    <th>Title</th>
+    <th>Parent</th>
+    <th>Kolejność</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @menu_items.each do |menu_item| %>
+  <tr>
+    <%=render :partial=>"menu_item_elem",:object=>menu_item%>
+  </tr>
+  <%menu_item.childs.each do |m|%>
+  <tr><td></td>
+    <%=render :partial=>"menu_item_elem",:object=>m%>
+  </tr>
+  <%end%>
+<% end %>
+</table>
+
+<br />
+
+
