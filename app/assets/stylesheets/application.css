@@ -298,3 +298,18 @@ background:url(stopko_loga.png);}
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     margin:4px auto;
 }
+#powiadomienia{
+	position:fixed;
+	bottom:0px;
+	background:white;
+	z-index:100;
+	border-top:1px solid black;
+	padding:10px 50px;
+	
+}
+
+.powiadomienie{
+	margin-bottom: 15px;
+	font-weight: normal;
+	font-size: 12px;
+}

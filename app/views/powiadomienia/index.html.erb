@@ -1,0 +1,31 @@
+<h4>Powiadomienia
+	<span class="button_dodaj">
+
+	<%= link_to 'Nowe powiadomienie', new_powiadomienie_path, :class=>'btn btn-success' %>
+	</span>
+	</h4>
+
+<table  class="table table-striped">
+  <tr>
+    <th>Treść</th>
+		<th>Potwierdzenie</th>
+    <th>Początek</th>
+    <th>Koniec</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @powiadomienia.each do |powiadomienie| %>
+  <tr>
+    <td><%= powiadomienie.message %></td>
+    <td><%= powiadomienie.confirm %></td>
+		<td><%=l powiadomienie.starts_at,format: :long %></td>
+    <td><%=l powiadomienie.ends_at %></td>
+    <td><%= link_to t(:show), powiadomienie,class: "btn btn-danger" %></td>
+    <td><%= link_to t(:edit), edit_powiadomienie_path(powiadomienie) ,class: "btn btn-info"%></td>
+    <td><%= link_to t(:destroy), powiadomienie, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-warning" %></td>
+  </tr>
+<% end %>
+</table>
+

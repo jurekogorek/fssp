@@ -1,0 +1,11 @@
+<% unless Powiadomienie.current(cookies.signed[:hidden_announcement_ids]).empty? %>
+<div id="powiadomienia">
+<%  Powiadomienie.current(cookies.signed[:hidden_announcement_ids]).each do |p| %>
+ 	<div class="powiadomienie" id="announcement_<%=p.id%>">
+		<%=p.message%> 
+		<%= link_to p.more_confirm, powiadomienie_path(p)%>, 
+		<%= link_to p.confirm, "/powiadomienia/#{p.id}/hide", remote: true %>
+	</div>		
+<%end%>	
+</div>
+<%end%>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<div class="article_710">
+	<article>
+	  <div class="article">    
+	<div class="article_container">
+	 
+	 			<header>
+	        <h2><%=@powiadomienie.message%>
+	        </h2>
+
+
+	      </header>
+	      <section>
+	        
+	          <%= sanitize @powiadomienie.more, :attributes => %w(id class style href src) %>
+	       
+
+	      </section>
+
+	      <footer>
+
+	        <div class="clear">
+
+	        </div>
+	      </footer>
+	    </div>
+	    <div class="clear"></div>
+	  </div>
+	</article>
+
+</div>
+
+

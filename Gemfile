@@ -43,6 +43,6 @@ gem 'nokogiri'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
+gem 'awesome_print', :require => 'ap', group: :development
 # To use debugger
-# gem 'debugger'
+gem 'debugger'

@@ -12,6 +12,10 @@ end
 Fssp::Application.routes.draw do
   resources :images
 
+
+  match "/powiadomienia/:id/hide", to: "powiadomienia#hide"
+  resources :powiadomienia
+
   get "main/index"
  
 
