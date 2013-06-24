@@ -304,12 +304,13 @@ background:url(stopko_loga.png);}
 	background:white;
 	z-index:100;
 	border-top:1px solid black;
-	padding:10px 50px;
+
 	
 }
 
 .powiadomienie{
-	margin-bottom: 15px;
+	margin:10px 50px 15px;
 	font-weight: normal;
 	font-size: 12px;
+	
 }
