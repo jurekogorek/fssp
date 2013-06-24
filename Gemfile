@@ -30,6 +30,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'will_paginate'
 gem 'nokogiri'
 # To use ActiveModel has_secure_password
