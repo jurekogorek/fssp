@@ -65,28 +65,6 @@
 <% end %>
 
 
-<div id="fileupload">
-  <%= form_for @picture, :html => { :multipart => true } do |f| %>
-      <br />
-      <div class="fileupload-buttonbar">
-          <label class="fileinput-button">
-              <span><%="Dodaj plik"%></span>
-                <%= f.file_field :file %>
-          </label>
-          <button type="submit" class="start"><%="Prześlij"%></button>
-
-          <button type="reset" class="cancel"><%="Przerwij wysyłanie"%></button>
-          <button type="button" class="delete"><%="Usuń"%></button>
-      </div>
-  <% end %>
-  <div class="fileupload-content">
-      <table class="files"></table>
-      <div class="fileupload-progressbar"></div>
-  </div>
-</div>
-
-<%= render :partial => "template-upload" %>
-<%= render :partial => "template-download" %>
 
 <br />
 <br />

@@ -16,7 +16,7 @@ Fssp::Application.configure do
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
-  config.assets.precompile += ['application.js', 'articles.js', 'application.css']
+  config.assets.precompile += [ 'articles.js']
   config.assets.precompile += ['jquery-ui.css','tinymce/jscripts/tiny_mce/tiny_mce.js']
   config.assets.precompile += %w( jquery.fileupload-ui.css bootstrap.min.js bootstrap-responsive.min.css bootstrap.min.css)
   config.assets.precompile += %w(galleriffic-2.css jquery.galleriffic.js jquery.opacityrollover.js jquery.ui.datepicker-pl.js jquery.dd.js)

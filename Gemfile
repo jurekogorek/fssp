@@ -29,9 +29,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
+gem 'jquery-rails', '< 2.1.0'
+gem 'jquery-ui-rails', '< 4.0.0'
+
 gem 'will_paginate'
+
 gem 'nokogiri'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -47,3 +49,4 @@ gem 'nokogiri'
 gem 'awesome_print', :require => 'ap', group: :development
 # To use debugger
 gem 'debugger'
+gem 'rack-mini-profiler', group: :development

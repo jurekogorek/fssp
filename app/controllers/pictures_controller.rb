@@ -41,14 +41,22 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-    @picture = Picture.new(params[:picture])
+    @picture = Picture.new
+    @picture.file = params[:picture][:path].shift
     @picture.article_id=session[:article_id].to_i
-    respond_to do |format|
-      if @picture.save
-       format.json { render :json => [ @picture.to_jq_upload ].to_json }
-      else
-        format.json { render :json => [ @picture.to_jq_upload.merge({ :error => "custom_failure" }) ].to_json }
+    if @picture.save
+      respond_to do |format|
+        format.html {                                         #(html response is for browsers using iframe sollution)
+          render :json => [@picture.to_jq_upload].to_json,
+          :content_type => 'text/html',
+          :layout => false
+        }
+        format.json {
+          render :json => [@picture.to_jq_upload].to_json
+        }
       end
+    else
+      render :json => [{:error => "custom_failure"}], :status => 304
     end
   end
 

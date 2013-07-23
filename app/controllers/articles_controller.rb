@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
     @article = Article.new
     @article.save!(:validate => false)
     session[:article_id]=@article.id
-    @picture=Picture.new
+    @object_new=Picture.new
     
     respond_to do |format|
       format.html # new.html.erb
@@ -45,8 +45,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
-    @picture=Picture.new
-     session[:article_id]=@article.id
+    @object_new=Picture.new
+    session[:article_id]=@article.id
   end
 
   # POST /articles
@@ -71,7 +71,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     @picture=Picture.new
-     session[:article_id]=@article.id
+    session[:article_id]=@article.id
     check_admin_or_dziekan
     respond_to do |format|
       if @article.update_attributes(params[:article])
