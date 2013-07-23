@@ -9,7 +9,7 @@ Fssp::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = true
+  config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
@@ -18,7 +18,7 @@ Fssp::Application.configure do
   config.assets.compile = false
   config.assets.precompile += [ 'articles.js']
   config.assets.precompile += ['jquery-ui.css','tinymce/jscripts/tiny_mce/tiny_mce.js']
-  config.assets.precompile += %w( jquery.fileupload-ui.css bootstrap.min.js bootstrap-responsive.min.css bootstrap.min.css)
+  config.assets.precompile += [ 'jquery.fileupload-ui.css', 'bootstrap.min.js' ,'bootstrap-responsive.min.css', 'bootstrap.min.css']
   config.assets.precompile += %w(galleriffic-2.css jquery.galleriffic.js jquery.opacityrollover.js jquery.ui.datepicker-pl.js jquery.dd.js)
 
 
