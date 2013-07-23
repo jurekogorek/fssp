@@ -14,6 +14,7 @@ gem 'nifty-generators'
 gem 'carrierwave','0.5.8'
 gem 'fog'
 gem 'mini_magick'
+gem 'rmagick'
 gem "best_in_place"
 #do galerii koniec
 #
